@@ -1,0 +1,26 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 mx-auto">
+      <div id="first">
+        <div class="myform form ">
+          <div class="logo mb-3">
+            <div class="col-md-12 text-center">
+              <h3>Create a new List</h3>
+            </div>
+          </div>
+          <form >
+            <div class="form-group">
+              <label for="newList">List</label>
+              <input type="text" name="newList" class="form-control " placeholder="Enter List" #listTitle>
+            </div>
+            <div class="col-md-12 text-center ">
+              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm" (click)="createNewList(listTitle.value)">Add</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

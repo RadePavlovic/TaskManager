@@ -1,0 +1,84 @@
+<div class="container">
+    
+    <div class="row bg-light task-view" style="margin-top: 70px;">
+        <div class="col-md-4" >
+            <div class="sidebar has-background-white">
+                <div>
+                    <h1 class="title has-text-primary">
+                        Lists
+                    </h1>
+                    <div class="">
+                        <div class="list-menu">
+                            <a class="list-menu-item" *ngFor="let list of lists" [routerLink]="['/lists',list._id]"
+                                routerLinkActive="is-active">
+                                <p>{{list.title}}</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <button class="btn btn-primary has-text-white new-list-button" routerLink='/new-list'><i
+                        class="fa fa-plus-circle" aria-hidden="true" style="padding: 3px 10px 5px 5px;"></i>New
+                    List</button>
+            </div></div>
+        <div class="col-md-8 d-flex flex-column justify-content-between">
+            <div class="top-bar">
+                <h1 class="title has-text-primary">Tasks</h1>
+                <div class="dropdown" *ngIf="listId">
+                    <a class="dropdown-toggle" id="navbarDropdown2" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-cog" aria-hidden="true"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                        <a class="dropdown-item text-success" [routerLink]="[ '/lists/', listId,'edit' ]">Edit
+                            List</a>
+                        <a class="dropdown-item text-danger" style="cursor:pointer"
+                            (click)="onDeleteList()">Delete
+                            List</a>
+                    </div>
+                </div>
+            </div>
+            <div class="task-list" >
+                <div class=""> 
+                    <h4 class="text-center mt-5" *ngIf="!listId && lists.length > 0">Please choose the list!</h4>
+                    <h4 class="text-center mt-5"*ngIf="listId && tasks.length < 1">You have no created tasks. Please create a new task!</h4>
+                    <h4 class="text-center"*ngIf="lists.length < 1">You have no created lists. Please create a new list!</h4> 
+                </div>
+                <div class="d-flex justify-content-between align-items-center" style="padding: 1px 50px;" *ngIf="listId && tasks.length > 0">
+                    <div class="">
+                        <p class="">Title</p>
+                    </div>
+                    <div class="">
+                        <p class="">Created At</p> 
+                    </div>
+                    <div class="">
+                       <p class="">Action</p>
+                    </div>
+                </div>
+                <div class="task" *ngFor="let task of tasks">
+                    <div class="d-flex justify-content-between align-items-center" >
+                        <div class="w-100 column" (click)="onTaskClick(task)"
+                            [ngClass]="{'completed': task.completed}">
+                            <p>{{task.title}}</p>
+                        </div>
+                        <div class="w-100 text-center"> 
+                            <p class="m-0">{{task.createdAt | date:'medium'}}</p>
+                        </div>
+                        <div class="w-100 d-flex justify-content-end column has-text-right task-buttons">
+                            <a [routerLink]="[ '/lists', listId,'task',task._id]" class="btn  edit-task"><i
+                                    class="fa fa-pencil " aria-hidden="true"></i></a>
+                            <a class="btn delete-task" (click)="onDeleteTask(task._id)">
+                                <i class="fa fa-trash " aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="create-task" *ngIf="listId">
+                <i class="fa fa-plus-circle new-task" aria-hidden="true" alt="Create a new task"
+                    routerLink='new-task' title="Create a new task!"></i>
+            </div>
+        </div>
+        
+    </div>
+</div>

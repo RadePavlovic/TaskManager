@@ -1,0 +1,31 @@
+.modal-box {
+    max-height: 500px;
+    width: 100%;
+    max-width: 580px;
+    background: rgb(228, 228, 228);
+    border-radius: 5px;
+    padding: 35px;
+}
+.back-button {
+    position: absolute;
+    top: 0px;
+    left: 93%;
+    font-weight: 300;
+    &:focus {
+        outline: none;
+    }
+    &:hover {
+        font-weight: 900; 
+        cursor: pointer;
+    }
+}
+
+.centered  {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+
+}
+
+
+     

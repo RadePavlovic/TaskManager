@@ -1,0 +1,84 @@
+// This is where we put global styles and change variable values
+
+// Import Fonts (Lato and Nunito)
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Nunito:400,700');
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+@import '~ngx-toastr/toastr';
+$turquoise: #4594f6;
+$light-blue:#007bff24;
+$green: #36d727;
+$light-green: #45f69e; 
+$dark-green: rgb(0, 100, 80);
+
+$light: #bcceee;
+$lightmore: #f8f8f8;
+
+
+// Update Bulma's global variables
+$family-sans-serif: "Nunito", sans-serif;
+$primary: $turquoise;
+
+$link: $green;
+
+
+// Update some of Bulma's component variables
+
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+html {
+    margin: 0px;
+}
+
+html, body { 
+    background:$turquoise
+}
+
+.centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.text-center {
+    text-align: center;
+}
+.white-box {
+    max-height: 500px;
+    width: 100%;
+    max-width: 580px;
+    background: rgb(228, 228, 228);
+    border-radius: 5px;
+    padding: 35px;
+}
+
+.is-invalid {
+    border-color: red;
+    }
+    .invalid-feedback {
+        color: red;
+    
+    }
+
+    .myform{
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        padding: 3rem;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        width: 100%;
+        pointer-events: auto;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid rgba(0,0,0,.2);
+        border-radius: 1.1rem;
+        outline: 0;
+        max-width: 500px;
+         }
+    
+        #first {
+            margin-top: 150px;
+        }

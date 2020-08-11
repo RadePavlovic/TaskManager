@@ -1,0 +1,75 @@
+<!--  
+  <div class="centered-content">
+    <div class="white-box">
+  
+      <h1 class="title has-text-primary">Login</h1>
+      <form [formGroup]="loginForm" (ngSubmit)="onLoginButtonClicked()">
+  
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+          <input  formControlName="email"  class="input has-background-white" type="email" placeholder="Email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" > 
+          <span class="icon is-small is-left">
+            <i class="fa fa-envelope-o" aria-hidden="true"></i> 
+          </span>
+        </p>
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">* Email is required</div>
+          <div *ngIf="f.email.errors.email">* Email must be a valid email address</div>
+      </div>
+      </div>
+      <div class="field">
+        <p class="control has-icons-left">
+          <input formControlName="password"  class="input has-background-white" type="password" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" >
+          <span class="icon is-small is-left">
+            <i class="fa fa-unlock-alt" aria-hidden="true"></i>  
+          </span>
+        </p>
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+      </div>
+      </div>
+      <div class="field" style="display: flex; justify-content: flex-end;">
+        <p class="control"> 
+            <button class="button is-primary has-text-white">
+              Login
+            </button> 
+          
+        </p>
+        
+      <br> 
+      </div> 
+      <p class="has-text-grey">Not got an account? <a routerLink="/signup">Sign up</a> now!</p>
+
+      </form>
+    </div>
+  </div> -->
+  
+<div class="container d-flex justify-content-center">
+  <div class="login-form">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onLoginButtonClicked()">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button [disabled]="submitted" class="btn btn-primary">
+                <span *ngIf="submitted" class="spinner-border spinner-border-sm mr-1"></span>
+                Login
+            </button>
+            <a routerLink="/signup" class="btn btn-link">Sign Up</a>
+        </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+.logout {
+    cursor: pointer;
+   &:hover {
+    color: #2eb34b !important;
+    transform: scale(1.1);
+   }
+}
+.navbar-brand-text {
+    font-family: 'Roboto',sans-serif;
+    font-weight: 900;
+}
